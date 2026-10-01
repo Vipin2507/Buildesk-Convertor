@@ -1,0 +1,193 @@
+.docx-exact-canvas {
+  flex: 1;
+  overflow: auto;
+  background: var(--color-canvas);
+  position: relative;
+  min-height: 0;
+}
+
+.docx-exact-loading {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  background: rgba(245, 246, 248, 0.85);
+  z-index: 2;
+  color: var(--color-text-secondary);
+  font-size: 13px;
+}
+
+.docx-exact-error {
+  margin: 24px;
+  padding: 12px 14px;
+  background: var(--color-error-bg);
+  color: var(--color-error);
+  border-radius: var(--radius-md);
+  font-size: 13px;
+}
+
+.docx-exact-body {
+  padding: var(--space-8) var(--space-6);
+  min-height: 100%;
+}
+
+/* docx-preview page wrappers */
+.docx-exact-body .docx-exact-wrapper {
+  background: transparent !important;
+  padding: 0 !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+}
+
+.docx-exact-body .docx-exact {
+  background: #fff !important;
+  box-shadow: var(--color-paper-shadow);
+  /* Avoid borders changing the perceived Word page box size */
+  border: none !important;
+  margin: 0 auto !important;
+}
+
+.docx-exact-styles {
+  /* Keep style tags active without affecting layout (display:none can drop @font-face in some browsers) */
+  position: absolute;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  pointer-events: none;
+}
+
+.html-exact-frame {
+  width: 100%;
+  height: 100%;
+  min-height: 70vh;
+  border: none;
+  background: var(--color-canvas);
+  display: block;
+}
+
+.docx-exact-body section.docx-exact {
+  position: relative !important;
+  box-sizing: border-box !important;
+  flex-shrink: 0;
+  /* A4: 8.27 × 11.69 inches */
+  width: 8.27in !important;
+  min-width: 8.27in !important;
+  max-width: 8.27in !important;
+  min-height: 11.69in !important;
+  height: 11.69in !important;
+  max-height: 11.69in !important;
+}
+
+.docx-exact-body section.docx-exact > header {
+  display: flex !important;
+  flex-direction: column !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  flex-shrink: 0 !important;
+  overflow: visible !important;
+  z-index: 5 !important;
+  position: relative !important;
+  margin: 0 !important;
+  justify-content: flex-end !important;
+}
+
+.docx-exact-body section.docx-exact > footer {
+  position: absolute !important;
+  left: 0 !important;
+  right: 0 !important;
+  bottom: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  overflow: visible !important;
+  z-index: 20 !important;
+  margin: 0 !important;
+  justify-content: center !important;
+  align-items: stretch !important;
+  color: #000 !important;
+  min-height: 0.6in !important;
+  pointer-events: none !important;
+  background: transparent !important;
+}
+
+.docx-exact-body section.docx-exact > article {
+  flex: 1 1 auto !important;
+  min-height: 0 !important;
+  overflow: hidden !important;
+  z-index: 1;
+}
+
+.docx-exact-body section.docx-exact > footer p,
+.docx-exact-body section.docx-exact > footer span,
+.docx-exact-body section.docx-exact > header p,
+.docx-exact-body section.docx-exact > header span {
+  visibility: visible !important;
+  opacity: 1 !important;
+  color: #000 !important;
+}
+
+.docx-exact-page-count {
+  position: sticky;
+  top: 0;
+  z-index: 3;
+  padding: 6px 12px;
+  font-size: 12px;
+  color: var(--color-text-secondary);
+  background: var(--color-surface-secondary);
+  border-bottom: 1px solid var(--color-border);
+  text-align: center;
+}
+
+.visual-mode-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  height: 36px;
+  padding: 0 12px;
+  background: var(--color-surface-secondary);
+  border-bottom: 1px solid var(--color-border);
+  flex-shrink: 0;
+}
+
+.visual-mode-bar-label {
+  font-size: 12px;
+  color: var(--color-text-secondary);
+}
+
+.visual-mode-toggle {
+  display: inline-flex;
+  padding: 2px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.visual-mode-toggle button {
+  height: 26px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.visual-mode-toggle button.is-active {
+  background: var(--color-primary);
+  color: #fff;
+}
+
+.visual-mode-toggle button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}

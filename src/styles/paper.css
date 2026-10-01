@@ -1,0 +1,18 @@
+/* Printed page surface — always light paper */
+.bc-paper {
+  background: var(--paper);
+  color: #0f172a;
+  font-family: "Times New Roman", Times, Georgia, serif;
+  box-shadow: var(--shadow-soft);
+}
+
+.bc-paper-a4 {
+  width: 8.27in;
+  min-height: 11.69in;
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.bc-canvas {
+  background: var(--color-canvas);
+}
