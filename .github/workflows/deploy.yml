@@ -31,6 +31,17 @@ jobs:
       - name: Build
         run: npm run build
 
+      - name: Clear old site files
+        uses: appleboy/ssh-action@v1.2.0
+        with:
+          host: ${{ secrets.DEPLOY_HOST }}
+          username: ${{ secrets.DEPLOY_USER }}
+          key: ${{ secrets.DEPLOY_SSH_KEY }}
+          port: 22
+          script: |
+            rm -rf ${{ secrets.DEPLOY_PATH }}/*
+            mkdir -p ${{ secrets.DEPLOY_PATH }}
+
       - name: Upload build to server
         uses: appleboy/scp-action@v0.1.7
         with:
